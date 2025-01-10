@@ -7,7 +7,12 @@
  */
 
 // TODO: returnHello 함수를 작성하세요.
-function returnHello() {}
+function returnHello() {
+  const a = new Promise((resolve, reject) => {
+    resolve("Hello");
+  });
+  return a;
+}
 
 // export를 수정하지 마세요.
 export { returnHello };
