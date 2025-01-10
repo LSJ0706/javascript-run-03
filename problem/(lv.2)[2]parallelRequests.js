@@ -16,8 +16,8 @@
  * });
  */
 async function parallelRequests(promise1, promise2) {
-  const result = await Promise.all([promise1, promise2]);
-  return result;
+  // ????
+  return Promise.all([promise1, promise2]);
 }
 
 // export를 수정하지 마세요.

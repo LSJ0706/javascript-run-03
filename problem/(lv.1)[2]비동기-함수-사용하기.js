@@ -20,7 +20,14 @@ async function fetchUsers() {
 }
 
 // TODO: getUsers 함수를 작성하세요.
-async function getUsers() {}
+async function getUsers() {
+  const response = await fetchUsers();
+
+  return response.reduce((acc, cur) => {
+    if (cur.name !== undefined) acc.push(cur.name);
+    return acc;
+  }, []);
+}
 
 // export를 수정하지 마세요.
 export { getUsers };

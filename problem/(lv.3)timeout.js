@@ -11,10 +11,12 @@
  * @returns {Promise<any>} - 먼저 완료된 Promise의 결과를 반환하는 Promise
  */
 async function timeOut(promise, ms) {
-  return Promise.race([
-    promise,
-    new Promise((_, reject) => setTimeout(() => reject("timeout"), ms)),
-  ]);
+  const timeOutPromise = new Promise((_, reject) => {
+    setTimeout(() => {
+      reject("timeout");
+    }, ms);
+  });
+  return Promise.race([timeOutPromise, promise]);
 }
 // export를 수정하지 마세요.
 export { timeOut };
